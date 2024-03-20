@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -44,7 +44,7 @@ export class DialogAddUserComponent {
   firestore: Firestore = inject(Firestore);
   items$: Observable<any[]>;
 
-  constructor() {
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
     const aCollection = collection(this.firestore, 'items');
     this.items$ = collectionData(aCollection);
   }
@@ -57,6 +57,8 @@ export class DialogAddUserComponent {
     await addDoc(this.getUserRef(), this.user.toJSON());
     console.log('adding user');
     this.loading = false;
+    this.dialogRef.close();
+
   }
 
   getUserRef() {
