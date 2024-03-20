@@ -11,7 +11,7 @@ import {
   provideNativeDateAdapter,
 } from '@angular/material/core';
 import { User } from '../models/user.class';
-import { Firestore,collection, collectionData } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, addDoc  } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 
@@ -37,10 +37,7 @@ export class DialogAddUserComponent {
   
    user = new User();
    birthDate!: Date;
-   saveUser(){
-    this.user.birthDate = this.birthDate.getTime();
-    console.log('CURRENT user is',this.user)}
-
+   
     firestore: Firestore = inject(Firestore);
     items$: Observable<any[]>;
   
@@ -48,5 +45,38 @@ export class DialogAddUserComponent {
       const aCollection = collection(this.firestore, 'items')
       this.items$ = collectionData(aCollection);
     }
+
+    async saveUser(){
+      this.user.birthDate = this.birthDate.getTime();
+      console.log('CURRENT user is',this.user)
+
+       await addDoc(this.getUserRef(),this.user.toJSON())
+        console.log('adding user')
+      };
+
+
+   
+
+    getUserRef(){
+      return collection(this.firestore,'users')
+    }
+
+     
+    // addNote(item:{}){
+    //   return addDoc(this.getUserRef(),item)
+    //   }
    
 }
+
+
+
+
+
+
+// saveUser(){
+//   this.user.birthDate = this.birthDate.getTime();
+//   console.log('CURRENT user is',this.user)
+//   this.firestore.collection('users').add(this.user.toJSON()).then((result:any)=>{
+//     console.log('adding user',result)
+//   });
+// }

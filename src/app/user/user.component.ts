@@ -19,7 +19,7 @@ import { User } from '../models/user.class';
 export class UserComponent {
 
    user: User = new User();
-  
+   
   constructor(public dialog: MatDialog) { }
 
   openDialog() {
