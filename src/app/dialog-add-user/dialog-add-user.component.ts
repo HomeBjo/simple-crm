@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component,inject } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +11,9 @@ import {
   provideNativeDateAdapter,
 } from '@angular/material/core';
 import { User } from '../models/user.class';
+import { Firestore,collection, collectionData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 
 
 
@@ -36,6 +39,14 @@ export class DialogAddUserComponent {
    birthDate!: Date;
    saveUser(){
     this.user.birthDate = this.birthDate.getTime();
-    console.log('CURRENT user is',this.user)
-   }
+    console.log('CURRENT user is',this.user)}
+
+    firestore: Firestore = inject(Firestore);
+    items$: Observable<any[]>;
+  
+    constructor() {
+      const aCollection = collection(this.firestore, 'items')
+      this.items$ = collectionData(aCollection);
+    }
+   
 }
