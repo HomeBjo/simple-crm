@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +10,9 @@ import {
   MatNativeDateModule,
   provideNativeDateAdapter,
 } from '@angular/material/core';
+import { User } from '../models/user.class';
+
+
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -26,4 +30,12 @@ import {
   templateUrl: './dialog-add-user.component.html',
   styleUrl: './dialog-add-user.component.scss',
 })
-export class DialogAddUserComponent {}
+export class DialogAddUserComponent {
+  
+   user = new User();
+   birthDate!: Date;
+   saveUser(){
+    this.user.birthDate = this.birthDate.getTime();
+    console.log('CURRENT user is',this.user)
+   }
+}
