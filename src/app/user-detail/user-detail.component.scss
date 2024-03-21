@@ -1,0 +1,27 @@
+mat-card{
+    min-height: 250px;
+    background-color: rgb(212 119 11);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    color: white;
+}
+.profile{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-left: 8px;
+}
+.userDeatails{
+    display: flex;
+    margin-left: 32px;
+   flex-direction: column;
+    align-items: flex-start;
+    height: 100px;
+    justify-content: center;
+    h2{
+        margin-bottom: 0;
+    }
+    
+}
