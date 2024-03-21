@@ -16,6 +16,7 @@ import {
   doc,
 } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -27,6 +28,7 @@ import { CommonModule } from '@angular/common';
     MatDialogModule,
     MatCardModule,
     CommonModule,
+    RouterLink
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
