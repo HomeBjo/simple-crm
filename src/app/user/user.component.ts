@@ -54,14 +54,6 @@ getAllUsers() {
 }
 
 
-
-
-
-
-
-
-
-
 getUserRef() {
   return collection(this.firestore, 'users');
 }
