@@ -6,6 +6,7 @@ export class User {
   street: string;
   zipCode: number;
   city: string;
+  id: string | undefined;
 
 
   constructor(obj?: any) {
@@ -16,6 +17,7 @@ export class User {
     this.street = obj ? obj.street: '';
     this.zipCode = obj ? obj.zipCode: '';
     this.city = obj ? obj.city: '';
+    this.id = obj ? obj.id: '';
   }         // also hier oben erstellen wir aus den construktor einen neuen user 
   public toJSON(){
     return { 
@@ -27,5 +29,6 @@ export class User {
       street: this.street|| "" ,
       zipCode: this.zipCode|| "" ,
       city: this.city|| "" ,
+      id: this.id|| "" ,
   }}
 } // und wen wir das ganze in einen json umwandeln 
