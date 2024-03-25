@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Firestore, collection, doc, onSnapshot } from '@angular/fire/firestore';
+import { Firestore, doc, onSnapshot } from '@angular/fire/firestore';
 import {MatCardModule} from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../models/user.class';
@@ -46,11 +46,11 @@ getUser() {
         ...doc.data(),
         id: doc.id,
       } as User;
-      this.user = userWithId; // Weise das User-Objekt direkt zu, ohne ein Array zu verwenden
+      this.user = userWithId;
       console.log('User', this.user);
     } else {
       console.error('Dokument existiert nicht.');
-      this.user = new User(); // Setze this.user auf eine neue Instanz von User oder null, je nach deinem Bedarf
+      this.user = new User(); 
     }
   });
 }
