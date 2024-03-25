@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import { User } from '../models/user.class';
 import {MatIconModule} from '@angular/material/icon';
@@ -15,6 +15,7 @@ import {
 } from '@angular/material/core';
 
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+import { Firestore, doc, updateDoc  } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-dialog-edit-adress',
@@ -28,8 +29,19 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
 export class DialogEditAdressComponent {
   loading = false;
   user!: User;
+  userId!:string;
+  firestore: Firestore = inject(Firestore);
   constructor(public dialogRef: MatDialogRef<DialogEditAdressComponent>){}
  
- 
-  saveUser(){}
+  async saveUser(){
+    const userData = doc(this.firestore, 'users', this.userId);
+    if (this.user && this.userId) {
+        this.loading = true;
+      await updateDoc(userData, this.user.toJSON()) 
+      .then(() => {
+        this.loading = false;
+        this.dialogRef.close();
+      })
+    }
+  }
 }

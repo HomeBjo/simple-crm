@@ -66,9 +66,12 @@ getUser() {
 userEditMenu(){
   const dialog = this.dialog.open(DialogEditUserComponent);
   dialog.componentInstance.user = new User(this.user);
+  dialog.componentInstance.userId =this.userId;
+
 }
 editMenu(){
   const dialog = this.dialog.open(DialogEditAdressComponent);
   dialog.componentInstance.user = new User(this.user);
+  dialog.componentInstance.userId =this.userId;
 }
 }
