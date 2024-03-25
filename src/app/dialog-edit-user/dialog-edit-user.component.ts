@@ -28,6 +28,7 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
 export class DialogEditUserComponent {
   loading = false;
   user!: User;
+  birthDate!:Date;
   constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>){
 
   }

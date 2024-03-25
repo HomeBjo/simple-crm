@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogEditAdressComponent } from '../dialog-edit-adress/dialog-edit-adress.component';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 
 @Component({
@@ -63,7 +64,7 @@ getUser() {
   });
 }
 userEditMenu(){
-  const dialog = this.dialog.open(DialogAddUserComponent);
+  const dialog = this.dialog.open(DialogEditUserComponent);
   dialog.componentInstance.user = this.user;
 }
 editMenu(){
