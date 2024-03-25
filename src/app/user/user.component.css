@@ -1,0 +1,51 @@
+.mat-mdc-card-content {
+  padding: 0;
+}
+
+mat-card {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.addUserBtn {
+  position: absolute;
+  right: 56px;
+  bottom: 56px;
+}
+
+.userTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.userTable tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.userTable tr:first-child {
+  cursor: unset;
+  height: 38px;
+}
+.userTable tr:first-child:hover {
+  background-color: unset;
+}
+.userTable tr:last-child {
+  border-bottom: 0;
+}
+.userTable tr:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.userTable td {
+  height: 48px;
+}
+.userTable td:first-child {
+  padding-left: 16px;
+}
+.userTable th {
+  color: rgba(0, 0, 0, 0.47);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: start;
+}
+.userTable th:first-child {
+  padding-left: 16px;
+}/*# sourceMappingURL=user.component.css.map */
