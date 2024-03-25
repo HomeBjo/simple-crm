@@ -1,22 +1,30 @@
 <mat-card class="matHeader">
-   
-<img class="profile" src="./assets/img/profile.png" alt="">
-    <div class="userDeatails">
-        <h2>{{user.firstName}} {{user.lastName}}</h2>
-        {{user.email}}
-    </div>
-
+    <button  [matMenuTriggerFor]="usermenu" class="pin-right-upper-corner2" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #usermenu="matMenu">
+        <button (click)="userEditMenu()" mat-menu-item>Edit</button>
+    </mat-menu>
+    
+  <img class="profile" src="./assets/img/profile.png" alt="" />
+  <div class="userDeatails">
+    <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+    {{ user.email }}
+  </div>
 </mat-card>
 
 <mat-card class="matContent mt-32">
-
-    
-        <mat-card-title>Adresse</mat-card-title>
-      
-      <mat-card-content>
-        {{user.street}} <br>
-        {{user.zipCode}} {{user.city}}
+    <button  [matMenuTriggerFor]="menu"  class="pin-right-upper-corner" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button (click)="editMenu()" mat-menu-item>Edit</button>
         
-      
-      </mat-card-content>
+      </mat-menu>
+  <mat-card-title>Adresse</mat-card-title>
+
+  <mat-card-content>
+    {{ user.street }} <br />
+    {{ user.zipCode }} {{ user.city }}
+  </mat-card-content>
 </mat-card>
