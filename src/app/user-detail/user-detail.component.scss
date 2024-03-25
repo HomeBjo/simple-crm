@@ -1,4 +1,4 @@
-mat-card{
+.matHeader{
     min-height: 250px;
     background-color: rgb(212 119 11);
     display: flex;
@@ -25,3 +25,9 @@ mat-card{
     }
     
 }
+.matContent{
+    padding-left: 16px;
+    mat-card-title{
+        padding-left: 16px;
+    }
+}   
