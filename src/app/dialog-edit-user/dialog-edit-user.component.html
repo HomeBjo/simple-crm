@@ -23,7 +23,6 @@
         </mat-form-field>
   </div>
 
-    
     <div>
         <mat-form-field class="box fullWidth" appearance="outline">
             <mat-label>Birth Date</mat-label>
@@ -35,7 +34,7 @@
     </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button [disabled]="loading" mat-button (click)="dialogRef.close()" >Cancel</button>
+  <button [disabled]="loading" mat-button (click)="dialogRef.close()">Cancel</button>
   <button [disabled]="loading"[mat-dialog-close] mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
 </mat-dialog-actions>
 
