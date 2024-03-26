@@ -14,6 +14,6 @@ import {MatIconModule} from '@angular/material/icon';
     imports: [RouterOutlet, MatToolbarModule, MatSidenavModule, MatIconModule,RouterModule]
 })
 export class AppComponent {
-  title = 'simple-crm';
+  // title = 'simple-crm';
 
 }
